@@ -15,7 +15,7 @@ public class Simulate {
         railroadNetwork = network;
 
         for (Train item : this.trains){
-            ArrayList<Integer> stationDistances = new ArrayList<Integer>();
+            ArrayList<Integer> stationDistances = new ArrayList<>();
             for (int i = 0; i < item.path.size() - 1 ; i++){
                 stationDistances.add(railroadNetwork.getLength(item.path.get(i),item.path.get(i+1)));
             }
@@ -47,10 +47,10 @@ public class Simulate {
             for (int j = i+1 ; j < trains.size(); j++){
                 if(trains.get(i).stationA == trains.get(j).stationA &&
                         trains.get(i).currentDistance == 0 && trains.get(j).currentDistance == 0){
-                    throw new CollisionException();
+                    throw new CollisionException("You have collision");
                 }
                 if(trains.get(i).stationA == trains.get(j).stationB && trains.get(i).stationB == trains.get(j).stationA){
-                    throw new CollisionException();
+                    throw new CollisionException("You have collision");
                 }
             }
         }

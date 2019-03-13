@@ -7,7 +7,7 @@ public class Network {
         connectionGraph = new int[stations][stations];
     }
 
-    public int getLength(int first,int second){
+    int getLength(int first, int second){
         return connectionGraph[first][second];
     }
     public void setLength(int first,int second,int length){
