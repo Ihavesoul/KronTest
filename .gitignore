@@ -27,3 +27,6 @@ release.properties
 *.iws
 out/
 .idea_modules/
+
+###########
+## does it work!?
