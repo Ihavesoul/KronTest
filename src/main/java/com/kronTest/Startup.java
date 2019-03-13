@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 
 public class Startup {
     public static void main(String[] args) throws IOException{
-        for (File file : listFilesMatching(new File("src/main/TestData"), "stations.*\\.txt")) {
+        for (File file : listFilesMatching(new File("src/main/resources/TestData"), "stations.*\\.txt")) {
             if (file.isFile()) {
                 String fileName = file.getPath();
                 String trainFileName = fileName.replace("stations","trains");
