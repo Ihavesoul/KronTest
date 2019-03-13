@@ -18,7 +18,7 @@ public class TrainHelper {
         return path;
     }
 
-    public static ArrayList<Train> ParseTrains(String fileName) throws IOException {
+    public static ArrayList<Train> parseTrains(String fileName) throws IOException {
         Path path = Paths.get(fileName);
         String[] lines = Files.readAllLines(path).toArray(new String[0]);
         int trainsTotal = Integer.parseInt(lines[0]);

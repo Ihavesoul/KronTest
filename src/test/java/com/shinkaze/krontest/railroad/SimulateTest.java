@@ -28,12 +28,12 @@ public class SimulateTest {
             if (file.isFile()) {
                 String fileName = file.getPath();
                 String trainFileName = fileName.replace("stations", "trains");
-                ArrayList<Train> trains = TrainHelper.ParseTrains(trainFileName);
-                Network network = RailroadHelper.ParseNetwork(file.getPath());
+                ArrayList<Train> trains = TrainHelper.parseTrains(trainFileName);
+                Network network = RailroadHelper.parseNetwork(file.getPath());
                 Simulate simulate = new Simulate(trains, network);
                 try {
                     simulate.start();
-                    Assert.fail("Collision");
+                    Assert.fail("Not collisions");
                 } catch (CollisionException e) {
                 }
             }

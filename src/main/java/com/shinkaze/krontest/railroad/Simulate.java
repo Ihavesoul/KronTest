@@ -5,11 +5,11 @@ import com.shinkaze.krontest.train.Train;
 
 import java.util.ArrayList;
 
-public class Simulate {
+class Simulate {
     private ArrayList<Train> trains;
     private Network railroadNetwork;
 
-    public Simulate(ArrayList<Train> trains, Network network) {
+    Simulate(ArrayList<Train> trains, Network network) {
         this.trains = trains;
 
         railroadNetwork = network;
@@ -24,7 +24,7 @@ public class Simulate {
         }
     }
 
-    public void start() throws CollisionException {
+    void start() throws CollisionException {
         while (trains.size() > 0) {
             update();
         }
@@ -45,7 +45,7 @@ public class Simulate {
 
     private void detectCollisions() throws CollisionException {
         for (int i = 0; i < trains.size(); i++) {
-            for (int j = i + 1; j < trains.size(); j++) {
+            for (int j = i + 1; j < trains.size() - 1; j++) {
                 if ((trains.get(i).getStationA() == trains.get(j).getStationA()
                         && trains.get(i).getCurrentDistance() == 0
                         && trains.get(j).getCurrentDistance() == 0)

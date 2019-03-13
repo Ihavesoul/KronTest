@@ -6,7 +6,8 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 
-@Getter@Setter
+@Getter
+@Setter
 public class Train {
     private ArrayList<Integer> path;
     private int stationA;

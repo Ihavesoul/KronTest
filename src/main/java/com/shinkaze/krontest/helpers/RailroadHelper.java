@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class RailroadHelper {
-    public static Network ParseNetwork(String fileName) throws IOException {
+    public static Network parseNetwork(String fileName) throws IOException {
         Path path = Paths.get(fileName);
         String[] lines = Files.readAllLines(path).toArray(new String[0]);
         int stationsTotal = Integer.parseInt(lines[0]);
