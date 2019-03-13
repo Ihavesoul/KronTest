@@ -14,9 +14,8 @@ Requirements for registration:
 
 Programming language (java). The configuration is set in external files. The presence of unit tests is desirable.
 
-# Troubles
+# Collisions
 - If two trains arrive at one end station at the same time, they will collide. Similarly, if one arrives at the station as the final one, and the other as an intermediate one.
-- Any way causes a collision (why???)
 
 # Files Format
 Name pattern: stations*, trains*
