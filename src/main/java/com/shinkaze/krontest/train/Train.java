@@ -6,24 +6,14 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 
+@Getter@Setter
 public class Train {
-    @Getter
-    @Setter
     private ArrayList<Integer> path;
-    @Getter
-    @Setter
     private int stationA;
-    @Getter
-    @Setter
     private int stationB;
     //Distance between stations
-    @Getter
-    @Setter
     private ArrayList<Integer> stationDistances;
-    @Getter
     private int currentDistance;
-    @Getter
-    @Setter
     private int stationAPathIndex;
 
     public Train(ArrayList<Integer> path) {
