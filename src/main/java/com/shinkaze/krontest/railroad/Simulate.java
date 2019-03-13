@@ -45,7 +45,7 @@ class Simulate {
 
     private void detectCollisions() throws CollisionException {
         for (int i = 0; i < trains.size(); i++) {
-            for (int j = i + 1; j < trains.size() - 1; j++) {
+            for (int j = i + 1; j < trains.size(); j++) {
                 if ((trains.get(i).getStationA() == trains.get(j).getStationA()
                         && trains.get(i).getCurrentDistance() == 0
                         && trains.get(j).getCurrentDistance() == 0)
