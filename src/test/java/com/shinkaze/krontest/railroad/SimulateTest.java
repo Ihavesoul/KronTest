@@ -4,12 +4,14 @@ import com.shinkaze.krontest.exceptions.CollisionException;
 import com.shinkaze.krontest.helpers.RailroadHelper;
 import com.shinkaze.krontest.helpers.TrainHelper;
 import com.shinkaze.krontest.train.Train;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
+
 
 public class SimulateTest {
     private static File[] listFilesMatching(File root, String regex) {
@@ -20,19 +22,19 @@ public class SimulateTest {
         return root.listFiles(file -> p.matcher(file.getName()).matches());
     }
 
-    @Test(expected = CollisionException.class)
-    public void collisionExceptionCheck() throws IOException, CollisionException {
+    @Test
+    public void collisionExceptionCheck() throws IOException {
         for (File file : listFilesMatching(new File("src/test/resources/TestData"), "stations.*\\.txt")) {
             if (file.isFile()) {
-                if (file.isFile()) {
-                    String fileName = file.getPath();
-                    String trainFileName = fileName.replace("stations", "trains");
-                    ArrayList<Train> trains = TrainHelper.ParseTrains(trainFileName);
-                    Network network = RailroadHelper.ParseNetwork(file.getPath());
-                    Simulate simulate = new Simulate(trains, network);
-
+                String fileName = file.getPath();
+                String trainFileName = fileName.replace("stations", "trains");
+                ArrayList<Train> trains = TrainHelper.ParseTrains(trainFileName);
+                Network network = RailroadHelper.ParseNetwork(file.getPath());
+                Simulate simulate = new Simulate(trains, network);
+                try {
                     simulate.start();
-                    System.out.println("Checking " + fileName + " and " + trainFileName);
+                    Assert.fail("Collision");
+                } catch (CollisionException e) {
                 }
             }
         }
